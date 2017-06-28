@@ -1,0 +1,10 @@
+<h1>Welcome, <%= cookies[:name]%>! Lets get started creating a car!!</h1>
+
+<form action="create" method="get">
+  <input type="text" name="make" placeholder="Make">
+  <input type="number" name="model_year" placeholder="Year">
+  <input type="submit" value="Generate This Car">
+</form>
+
+<%= flash[:error] %>
+<!-- SECOND PAGE -->
