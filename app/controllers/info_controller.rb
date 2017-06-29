@@ -1,6 +1,9 @@
-class CarInfoController < ApplicationController
+class InfoController < ApplicationController
   def status
+    # car = Car.new("Dodge", 1900)
+    # session[:car] = car.to_yaml
     @car = YAML.load(session[:car])
+
   end
 
   def accelerate
@@ -25,21 +28,12 @@ class CarInfoController < ApplicationController
   end
 
   def park_brake
-    @car = YAML.load(session[:car])
-    @car.park_brake
-    session[:car] = @car.to_yaml
-    render "status.html.erb"
+      @car = YAML.load(session[:car])
+      @car.set_park_brake
+      session[:car] = @car.to_yaml
+      render "status.html.erb"
   end
 
 
-
-
-
-
-
-
-
-
 end #ends class
-
 #Third page controller

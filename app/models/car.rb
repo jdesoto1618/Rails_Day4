@@ -1,19 +1,25 @@
 class Car
-  def initialize(make, model_year)
+  def initialize(make, model_year, color)
     @make = make
     @model_year = model_year
+    @color = color
     @speed = 0
     @lights = false
     @parking_brake = true
   end
 
   def new_car
-    "You made a #{@model_year} #{@make}. It's speed is #{@speed}."
+    "You made a #{@model_year} #{@color} #{@make}. Its speed is #{@speed}."
   end
 
-
   def accelerate
-    @speed += 10
+    if @parking_brake
+      "Acceleration disabled!"
+      @speed += 0
+    else
+      "Go for it"
+      @speed += 10
+    end
   end
 
   def brake
@@ -34,8 +40,10 @@ class Car
     end
   end
 
-  def park_brake
-    @parking_brake = !@parking_brake
+  def set_park_brake
+    if @speed == 0
+      @parking_brake = !@parking_brake
+    end
   end
 
   def new_brake
@@ -45,6 +53,18 @@ class Car
       "Parking brake is OFF!"
     end
   end
-end
+
+  def no_accel
+    if @parking_brake
+      "Acceleration disabled"
+    else
+      "Acceleration enabled"
+    end
+  end
+
+  def color #gets color specified by user
+    @color
+  end
+end #ends Car class
 
 #This is the model

@@ -9,3 +9,6 @@ class UserController < ApplicationController
     end
   end
 end
+
+
+#First Page controller
